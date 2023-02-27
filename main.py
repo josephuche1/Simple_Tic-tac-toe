@@ -1,4 +1,4 @@
-# program for simple tic tac toe
+# program for simple tic-tac-toe
 
 game_state = input()
 start = 0

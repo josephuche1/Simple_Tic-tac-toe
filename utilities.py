@@ -1,4 +1,4 @@
-def print_game_state(game):
+def print_game_state(game):  # prints the game state in grid form
     start = 0
     stop = 3
     print("---------")
@@ -11,7 +11,7 @@ def print_game_state(game):
     print("---------")
 
 
-def is_finished(game):
+def is_finished(game):  # method to check if the grid is  full
     countx = 0
     counto = 0
     for i in game:
@@ -27,7 +27,7 @@ def is_finished(game):
     return True
 
 
-def is_draw(game):
+def is_draw(game):  # method to check if game is a draw
     countx = 0
     counto = 0
     for i in game:
@@ -42,7 +42,7 @@ def is_draw(game):
         return False
 
 
-def win_vertical(game):
+def win_vertical(game):  # checks if all elements in a row are the same by iterating over the string
     start = 0
     stop = 7
     while stop <= len(game):
@@ -62,7 +62,7 @@ def win_vertical(game):
     return False
 
 
-def win_horizontal(game):
+def win_horizontal(game):  # checks if all elements in a row are the same by iterating over the string
     start = 0
     stop = 3
     while stop <= len(game):
@@ -82,7 +82,7 @@ def win_horizontal(game):
     return False
 
 
-def win_diagonal(game):
+def win_diagonal(game):  # checks if all elements in a row are the same by iterating over the string
     start = 2
     stop = 7
     step = 2

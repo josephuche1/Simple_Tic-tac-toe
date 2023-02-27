@@ -1,6 +1,6 @@
 # program for simple tic-tac-toe
 import utilities as func
-game = "         "
+game = "         "  # initial game state
 func.print_game_state(game)
 start = 0
 stop = 3
@@ -16,9 +16,10 @@ while stop <= len(game):
 
 player = 1
 
+# loop to collect coordinates from players till the game ends
 while True:
     try:
-        coordinate1, coordinate2 = list(map(int, input().split()))
+        coordinate1, coordinate2 = list(map(int, input().split()))  # checking if coordinates are within game range
         if (coordinate1 in range(1, 4)) and (coordinate2 in range(1, 4)):
             if func.replace_item(games, coordinate1-1, coordinate2-1, player):
                 new_game = []
@@ -27,12 +28,15 @@ while True:
                         new_game.append(j)
 
                 func.print_game_state("".join(new_game))
-                game = "".join(new_game)
+                game = "".join(new_game)  # changing game state
 
+                # changing between player 1 and 2
                 if player == 1:
                     player += 1
                 elif player == 2:
                     player -= 1
+
+                # Analyzing game condition and correctness to get winner
                 if not func.is_impossible(game):
                     if not func.is_finished(game):
                         pass
@@ -58,6 +62,6 @@ while True:
         else:
             print("Coordinates should be from 1 to 3!")
 
-    except ValueError:
+    except ValueError:  # Prints if exception is encountered
         print("You should enter numbers!")
 

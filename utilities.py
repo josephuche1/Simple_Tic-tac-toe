@@ -14,8 +14,6 @@ def print_game_state(game):
 def is_finished(game):
     countx = 0
     counto = 0
-    track_vertical = []
-    track_horizontal = []
     for i in game:
         if i == 'X':
             countx += 1
@@ -177,3 +175,12 @@ def winner(game):
         return False
     else:
         return True
+
+
+def replace_item(game, coordinate1, coordinate2):  # replaces empty position in grid
+    if game[coordinate1][coordinate2] == 'X' or game[coordinate1][coordinate2] == 'O':
+        return False
+    else:
+        game[coordinate1][coordinate2] = 'X'
+        return True
+

@@ -28,9 +28,18 @@ def is_finished(game):
 
 
 def is_draw(game):
-    if is_finished(game) and not winner(game):
-        return "Draw"
-    return False
+    countx = 0
+    counto = 0
+    for i in game:
+        if i =='X':
+            countx += 1
+        elif i == 'O':
+            counto += 1
+    if countx + counto == len(game):
+        if not winner(game):
+            return "Draw"
+    else:
+        return False
 
 
 def win_vertical(game):
@@ -177,10 +186,14 @@ def winner(game):
         return True
 
 
-def replace_item(game, coordinate1, coordinate2):  # replaces empty position in grid
+def replace_item(game, coordinate1, coordinate2, player):  # replaces empty position in grid
     if game[coordinate1][coordinate2] == 'X' or game[coordinate1][coordinate2] == 'O':
         return False
     else:
-        game[coordinate1][coordinate2] = 'X'
-        return True
-
+        if player == 1:
+            game[coordinate1][coordinate2] = 'X'
+            player += 1
+        elif player == 2:
+            game[coordinate1][coordinate2] = 'O'
+            player -= 1
+        return player
